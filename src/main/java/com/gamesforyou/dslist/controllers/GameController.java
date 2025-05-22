@@ -19,6 +19,14 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 	
+	@RestController
+	public class PingController {
+	    @GetMapping("/")
+	    public String ping() {
+	        return "✅ Aplicação está rodando!";
+	    }
+	}
+
 	@GetMapping(value = "/{id}")
 	public GameDTO findById(@PathVariable long id){
 		GameDTO result = gameService.findById(id);
